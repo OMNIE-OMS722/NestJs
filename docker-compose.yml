@@ -1,0 +1,17 @@
+version: '24.0.5'
+services:
+ mongo:
+  image: mongo:latest
+  container_name: mongo-container
+  ports:
+     -27017:27017
+  environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: Annsr1@3
+
+  my-app:
+    build:
+      context: ./src
+    depends_on:
+      - mongodb
+    # Other configuration for your app service
